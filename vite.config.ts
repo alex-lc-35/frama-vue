@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'https://alex-lc-35.github.io/frama-vue/',
+  base: '/frama-vue/',
   plugins: [
     vue(),
     vueDevTools()
