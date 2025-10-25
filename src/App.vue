@@ -1,47 +1,29 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { onMounted } from 'vue'
+import { store } from './store.ts'
+import MarkdownViewer from '@/components/MarkdownViewer.vue'
+
+onMounted(() => {
+  store.load()
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="frama-vue !!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <h1>GO</h1>
+
+    <div v-if="store.sections">
+      <div v-for="section in store.sections" :key="section.id">
+        <div v-if="section.filetype === 'png'">
+          <img :src="`${store.baseUrl}/${section.src}`" :alt="section.id" />
+        </div>
+
+        <div v-if="section.filetype === 'md'">
+          <MarkdownViewer :src="`${store.baseUrl}/${section.src}`" />
+        </div>
+      </div>
+    </div>
+
+    <div v-else>Chargement...</div>
   </main>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

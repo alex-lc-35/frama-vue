@@ -1,0 +1,42 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "title": "",
+      "type": "",
+      "src": "",
+      "src_md": "",
+      "src_sm": "",
+      "active": true
+    },
+    {
+      "id": "event",
+      "title": "Événement",
+      "type": "img",
+      "src": "frama",
+      "path": "BzgrCPGADiAkRkG",
+      "active": true
+    }
+  ],
+  "collectives": "https://inse35.frama.space/apps/collectives/p/P4cYL9CTs4HJCiM/Public-Indignons-Nous-Sud-Est-35-1",
+  "header": {
+    "type": "img",
+    "title": "",
+    "url": "https://inse35.frama.space/s/BzgrCPGADiAkRkG",
+    "active": true
+  },
+  "links": [
+    {
+      "type": "list",
+      "title": "Comptes rendus",
+      "url": "https://inse35.frama.space/s/JcQWpz7BEBiQHY6",
+      "active": true
+    },
+    {
+      "type": "list",
+      "title": "Affiches",
+      "url": "https://inse35.frama.space/s/JcQWpz7BEBiQHY6",
+      "active": true
+    }
+  ]
+}
