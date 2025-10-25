@@ -5,12 +5,15 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
-  plugins: [vue(), vueDevTools()],
+export default defineConfig({
+  plugins: [
+    vue(),
+    vueDevTools()
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-    base: mode === 'production' ? '/frama-vue/' : '/',
-  },
-}))
+      'base': '/frama-vue/'
+    }
+  }
+})
