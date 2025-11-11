@@ -18,11 +18,13 @@ interface Store {
   baseUrl: string
   sections: Section[]
   load: () => Promise<void>
+  ready: boolean
 }
 
 export const store = reactive<Store>({
   baseUrl: 'https://alex-lc-35.github.io/cdn-content',
   sections: [], // ✅ initialise ton tableau
+  ready: false,
 
   async load() {
     try {
@@ -31,6 +33,7 @@ export const store = reactive<Store>({
 
       this.sections = (await res.json()) as Section[]
       console.log('Données chargées :', this.sections)
+      this.ready = true
     } catch (err) {
       console.error('Erreur de chargement :', err)
     }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { store } from './store.ts'
-import MarkdownViewer from '@/components/MarkdownViewer.vue'
+import FmSection from '@/components/FmSection.vue'
 
 onMounted(() => {
   store.load()
@@ -10,18 +10,17 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1>GO</h1>
+    <div v-if="store.ready">
 
-    <div v-if="store.sections">
-      <div v-for="section in store.sections" :key="section.id">
-        <div v-if="section.filetype === 'png'">
-          <img :src="`${store.baseUrl}/${section.src}`" :alt="section.id" />
-        </div>
+      <fm-section slug="header"/>
 
-        <div v-if="section.filetype === 'md'">
-          <MarkdownViewer :src="`${store.baseUrl}/${section.src}`" />
-        </div>
-      </div>
+      <fm-section slug="about"/>
+
+      <fm-section slug="contact"/>
+
+
+      <pre>{{store}}</pre>
+
     </div>
 
     <div v-else>Chargement...</div>
