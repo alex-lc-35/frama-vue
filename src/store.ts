@@ -23,7 +23,7 @@ interface Store {
 
 export const store = reactive<Store>({
   baseUrl: 'https://alex-lc-35.github.io/cdn-content',
-  sections: [], // ✅ initialise ton tableau
+  sections: [],
   ready: false,
 
   async load() {
