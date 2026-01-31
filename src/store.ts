@@ -28,7 +28,9 @@ export const store = reactive<Store>({
 
   async load() {
     try {
-      const res = await fetch(`${this.baseUrl}/data_updated.json`)
+      const res = await fetch(`${this.baseUrl}/data_updated.json`, {
+        cache: "no-store"
+      });
       if (!res.ok) throw new Error(`Erreur ${res.status}`)
 
       this.sections = (await res.json()) as Section[]
